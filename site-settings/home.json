@@ -40,17 +40,17 @@
         {
             "href": "/docs/getting-started/0.1/introduction/what-is-iota",
             "image": "1.png",
-            "name": "What is IOTA?"
+            "name": "IOTAとは？"
         },
         {
             "href": "/docs/getting-started/0.1/introduction/what-is-dlt",
             "image": "2.png",
-            "name": "What is DLT?"
+            "name": "DLTとは？"
         },
         {
             "href": "/docs/client-libraries/0.1/introduction/overview",
             "image": "3.png",
-            "name": "Start Building"
+            "name": "作り始める"
         }
     ]
 }

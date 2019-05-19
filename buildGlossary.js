@@ -4,7 +4,7 @@ var termbase = fs.readFileSync('termbase.json');
 
 var termsObj = JSON.parse(termbase);
 
-function capitalize(string) 
+function capitalize(string)
 {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }

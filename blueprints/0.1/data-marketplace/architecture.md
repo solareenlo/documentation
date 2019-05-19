@@ -1,12 +1,14 @@
-# Application architecture
+# アプリケーションアーキテクチャー
 
-**The Data Marketplace application uses sensors, a cloud backend, and the IOTA Tangle to publish data to MAM channels.**
+データマーケットプレイスは、センサー、クラウドバックエンド、およびIOTAタングルを使用してデータをMAMチャンネルに公開します。
 
-:::warning:Disclaimer
-Running an open source project, like any human endeavor, involves uncertainty and trade-offs. We hope the architecture described below helps you to deploy similar systems, but it may include mistakes, and can’t address every situation. If you have any questions about your project, we encourage you to do your own research, seek out experts, and discuss them with the IOTA community.
+:::warning:免責事項
+オープンソースプロジェクトを実行することは、不確実性とトレードオフを伴います。
+以下に説明するアーキテクチャーが、同様のシステムを展開するのに役立つことを願っていますが、間違いが含まれている可能性があり、すべての状況に対処することはできません。
+あなたのプロジェクトについて何か質問があれば、私たちはあなたがあなた自身の研究をし、専門家を探し、そしてIOTAコミュニティとそれらを話し合うことを奨励します。
 :::
 
-The architecture of our PoC (shown in the image below) follows a pattern, where the sensor or any other device, cloud backend, and distributed ledger (DLT) are interconnected.
+ここに記載されたPoCの構造（下の画像）は、センサーまたはその他のデバイス、クラウドバックエンド、および分散元帳（DLT）が相互接続されたパターンに従います。
 
 ![Data Marketplace architecture](../data-marketplace-architecture.png)
 
