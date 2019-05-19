@@ -3,7 +3,7 @@
 **タングルは、トランザクション間の接続によって形成されるデータ構造です。 タングル内のトランザクションは、保留中または確定済みの2つの状態のいずれかになります。**
 <!-- **The Tangle is the data structure that's formed by the connections among transactions. Transactions in the Tangle can be in one of two states: Pending or confirmed.** -->
 
-トランザクションの検証基準の1つは、それぞれのトランザクションが前の2つのトランザクションを直接参照しなければならないということです。トランザクション間を接続して、トランザクションをタングルに結び付けるのはこれらの参照です。
+トランザクションの検証基準の1つは、それぞれのトランザクションが前の2つのトランザクションを直接参照しなければならないということです。トランザクション間を接続して、トランザクションをタングルに_添付する_のはこれらの参照です。
 <!-- One of the validation criteria of a transaction is that each one must directly reference two previous ones. It's these references that connect transactions and _attach_ them to the Tangle. -->
 
 この参照モデルは、各トランザクションが1つの頂点を表す、一種の[有向非巡回グラフ](https://en.wikipedia.org/wiki/Directed_acyclic_graph)（DAG）を形成します。

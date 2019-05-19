@@ -1,4 +1,4 @@
-# シードとは何か？
+# シードとは？
 
 **シードは、アドレスと秘密鍵のペアを導出し、IOTAトークンを引き出すバンドルに署名するために使用される秘密のパスワードです。**
 <!-- **A seed is a secret password that's used to derive address/private key pairs and to sign bundles whose transactions withdraw IOTA tokens.** -->

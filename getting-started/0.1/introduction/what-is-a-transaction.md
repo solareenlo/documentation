@@ -1,4 +1,4 @@
-# トランザクションとは何か？
+# トランザクションとは？
 
 **トランザクションは、単独で使用することも、他のトランザクションと一緒にパッケージ化することもできる単一の操作です。単独型のトランザクションは、たとえばデータのみを送信するための、IOTAトークンを含まないものです。**
 <!-- **A transaction is a single operation that can stand alone or be packaged with other transactions. Stand-alone transactions are those that contain no value, for example to send only data.** -->
