@@ -1,18 +1,18 @@
 # Index
 
-[前置き/分散型台帳技術とは？](/introduction/what-is-dlt.md)
+[前置き/分散型台帳技術とは?](/introduction/what-is-dlt.md)
 
-[前置き/IOTAとは？](/introduction/what-is-iota.md)
+[前置き/IOTAとは?](/introduction/what-is-iota.md)
 
-[前置き/タングルとは？](/introduction/what-is-the-tangle.md)
+[前置き/タングルとは?](/introduction/what-is-the-tangle.md)
 
-[前置き/シードとは？](/introduction/what-is-a-seed.md)
+[前置き/シードとは?](/introduction/what-is-a-seed.md)
 
-[前置き/トランザクションとは？](/introduction/what-is-a-transaction.md)
+[前置き/トランザクションとは?](/introduction/what-is-a-transaction.md)
 
-[前置き/バンドルとは？](/introduction/what-is-a-bundle.md)
+[前置き/バンドルとは?](/introduction/what-is-a-bundle.md)
 
-[前置き/ノードとは？](/introduction/what-is-a-node.md)
+[前置き/ノードとは?](/introduction/what-is-a-node.md)
 
 [チュートリアル/はじめに](/tutorials/first-steps.md)
 

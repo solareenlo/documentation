@@ -1,9 +1,9 @@
-# IOTAは, IOTAネットワーク内のコンピュータが相互に不変のデータと価値（IOTAトークン）を転送できるようにした分散型台帳技術（DLT）です.
+# IOTAは, IOTAネットワーク内のコンピュータが相互に不変のデータと価値(IOTAトークン)を転送できるようにした分散型台帳技術(DLT)です.
 
-[DLTとは？](/0.1/introduction/what-is-dlt.md)
+[DLTとは?](/0.1/introduction/what-is-dlt.md)
 ## ノードが分散化されたネットワークにデータを保存することの利点を学ぶ.
 
-[IOTAとは？](/0.1/introduction/what-is-iota.md)
+[IOTAとは?](/0.1/introduction/what-is-iota.md)
 ## IOTAの独自性と, それをアプリケーションでどのように活用できるかを学ぶ.
 
 [ユースケース](/0.1/references/use-cases.md)

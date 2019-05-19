@@ -9,5 +9,5 @@
 [タングルデータストレージ](/0.1/tangle-data-storage/overview.md)
 ## IOTAを使用してイベントの不変記録を保管する方法を学ぶ
 
-[トラック＆トレース](/0.1/track-and-trace/overview.md)
-## IOTAを使用してのサプライチェーン内の資産のトラック＆トレースについて学ぶ
+[トラック&トレース](/0.1/track-and-trace/overview.md)
+## IOTAを使用してのサプライチェーン内の資産のトラック&トレースについて学ぶ
