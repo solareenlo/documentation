@@ -1,66 +1,66 @@
 {
-    "footerDocsSectionTitle": "Developer Docs",
+    "footerDocsSectionTitle": "開発者向けドキュメント",
     "footerSections": [
         {
-            "heading": "The Foundation",
+            "heading": "IOTA財団",
             "links": [
                 {
                     "link": "https://www.iota.org/the-foundation/our-vision",
-                    "name": "Our Vision"
+                    "name": "ヴィジョン"
                 },
                 {
                     "link": "https://www.iota.org/the-foundation/the-iota-foundation",
-                    "name": "The IOTA Foundation"
+                    "name": "IOTA財団について"
                 },
                 {
                     "link": "https://www.iota.org/the-foundation/team",
-                    "name": "Meet the Team"
+                    "name": "チーム"
                 },
                 {
                     "link": "https://www.iota.org/the-foundation/work-at-the-iota-foundation",
-                    "name": "Work at the IOTA Foundation"
+                    "name": "IOTA財団で働く"
                 }
             ]
         },
         {
-            "heading": "Verticals",
+            "heading": "市場",
             "links": [
                 {
                     "link": "https://www.iota.org/verticals/mobility-automotive",
-                    "name": "Mobility and Automotive"
+                    "name": "モビリティと自動車"
                 },
                 {
                     "link": "https://www.iota.org/verticals/global-trade-supply-chains",
-                    "name": "Global Trade & Supply Chains"
+                    "name": "グローバル貿易＆サプライチェーン"
                 },
                 {
                     "link": "https://www.iota.org/verticals/industrial-iot",
-                    "name": "Industrial IoT"
+                    "name": "工業用IoT"
                 },
                 {
                     "link": "https://www.iota.org/verticals/ehealth",
-                    "name": "eHealth"
+                    "name": "eヘルス"
                 },
                 {
                     "link": "https://www.iota.org/verticals/smart-energy",
-                    "name": "Smart Energy"
+                    "name": "スマートシティ"
                 }
             ]
         },
         {
-            "heading": "Research",
+            "heading": "リサーチ",
             "links": [
                 {
                     "link": "https://www.iota.org/research/meet-the-tangle",
-                    "name": "Meet the Tangle"
+                    "name": "タングルについて"
                 },
                 {
                     "link": "https://www.iota.org/research/academic-papers",
-                    "name": "Academic Papers"
+                    "name": "アカデミックペーパー"
                 },
                 {
                     "link": "https://www.iota.org/research/roadmap",
-                    "name": "Research & Development Roadmap"
+                    "name": "R&Dロードマップ"
                 }
             ]
         }
@@ -74,7 +74,7 @@
             "Germany"
         ],
         "legal": [
-            "&copy; 2018 IOTA Foundation - <a link='https://www.iota.org/research/privacy-policy'>Privacy Policy</a>",
+            "&copy; 2019 IOTA Foundation - <a link='https://www.iota.org/research/privacy-policy'>Privacy Policy</a>",
             "Email: <a link='mailto:contact@iota.org'>contact@iota.org</a>",
             "Board of Directors: Dominik Schiener, David Sønstebø, Ralf Rottmann, Serguei Popov &amp; Sergey Ivancheglo",
             "ID/Company No.: 3416/1234/2",

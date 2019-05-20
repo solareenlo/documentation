@@ -1,5 +1,5 @@
 {
-    "headerTitle": "Developer Documentation",
+    "headerTitle": "開発者向けドキュメント",
     "headerTopLinks": [
         {
             "href": "https://iota.org",
@@ -7,19 +7,19 @@
         },
         {
             "href": "https://blog.iota.org/",
-            "name": "news"
+            "name": "ニュース"
         },
         {
             "href": "https://trinity.iota.org/",
-            "name": "wallet"
+            "name": "ウォレット"
         },
         {
             "href": "https://qubic.iota.org/",
-            "name": "qubic"
+            "name": "キュービック"
         },
         {
             "href": "https://ecosystem.iota.org/",
-            "name": "ecosystem"
+            "name": "エコシステム"
         }
     ],
     "popularTopics": [
@@ -29,11 +29,11 @@
         },
         {
             "query": "hub",
-            "name": "Hub"
+            "name": "ハブ"
         },
         {
             "query": "trinity",
-            "name": "Trinity"
+            "name": "トリニティ"
         }
     ],
     "cards": [
