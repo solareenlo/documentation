@@ -142,7 +142,7 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
   <!-- ::: -->
 
 :::success:
-ノードへの接続を確認しました。次にノードにトランザクションを送ることができます。
+ノードへの接続を確認できました。次にノードにトランザクションを送ることができます。
 :::
 <!-- :::success: -->
 <!-- You've confirmed your connection to the node. Now, you can send a transaction to it. -->

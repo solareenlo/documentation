@@ -18,11 +18,11 @@
 
 [チュートリアル/シード作成](/tutorials/create-a-seed.md)
 
-[チュートリアル/はじめてのトランザクション送信 (Trinity)](/tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md)
+[チュートリアル/はじめてのトランザクション送信（トリニティ）](/tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md)
 
-[チュートリアル/はじめてのトランザクション送信 (Node.js)](/tutorials/send-a-zero-value-transaction-with-nodejs.md)
+[チュートリアル/はじめてのトランザクション送信（Node.js）](/tutorials/send-a-zero-value-transaction-with-nodejs.md)
 
-[チュートリアル/IRIノードを走らせる (Docker)](/tutorials/run-your-own-iri-node.md)
+[チュートリアル/IRIノードを走らせる（Docker）](/tutorials/run-your-own-iri-node.md)
 
 [参考文献/IOTAネットワーク](/references/iota-networks.md)
 
