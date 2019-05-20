@@ -1,4 +1,4 @@
-# 自分のIRIノードを実行する
+# 自分のIRIノードを実行する（Docker）
 <!-- # Run your own IRI node -->
 
 **ノードはIOTAネットワークの中核です。クライアントは、トランザクションをノードに送信して検証し、台帳に記録する必要があります。**
@@ -63,13 +63,13 @@ Linuxオペレーティングシステムを使用している場合は、以下
   This message shows that your installation appears to be working correctly.
 
   To generate this message, Docker took the following steps:
-  1. The Docker client contacted the Docker daemon.
-  2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
-      (amd64)
-  3. The Docker daemon created a new container from that image which runs the
-      executable that produces the output you are currently reading.
-  4. The Docker daemon streamed that output to the Docker client, which sent it
-      to your terminal.
+    1. The Docker client contacted the Docker daemon.
+    2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+        (amd64)
+    3. The Docker daemon created a new container from that image which runs the
+        executable that produces the output you are currently reading.
+    4. The Docker daemon streamed that output to the Docker client, which sent it
+        to your terminal.
 
   To try something more ambitious, you can run an Ubuntu container with:
   docker run -it ubuntu bash
