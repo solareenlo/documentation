@@ -38,27 +38,27 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
 1. コマンドプロンプトで、`iota-example`という作業ディレクトリを作成します。
 <!-- 1. In the command prompt, create a working directory called `iota-example` -->
 
-    ```bash
-    mkdir iota-example
-    ```
+  ```bash
+  mkdir iota-example
+  ```
 
 2. `iota-example`ディレクトリに移動し、IOTAクライアントライブラリをインストールします。
 <!-- 2. Change into the `iota-example` directory and install the IOTA client libraries -->
 
-    ```bash
-    cd iota-example
-    npm install @iota/core @iota/converter --save
-    ```
+  ```bash
+  cd iota-example
+  npm install @iota/core @iota/converter --save
+  ```
 
     すべてうまくいけば、標準出力に次のようなものが表示されるはずです。 'npm WARN'メッセージは無視してかまいません。
     <!-- If everything went well, you should see something like the following in the output. You can ignore any 'npm WARN' messages. -->
 
-    ```shell
-    + @iota/converter@1.0.0-beta.8
-    + @iota/core@1.0.0-beta.8
-    added 19 packages from 10 contributors and audited 68 packages in 5.307s
-    found 0 vulnerabilities
-    ```
+  ```shell
+  + @iota/converter@1.0.0-beta.8
+  + @iota/core@1.0.0-beta.8
+  added 19 packages from 10 contributors and audited 68 packages in 5.307s
+  found 0 vulnerabilities
+  ```
 
     これで、package.jsonファイルと、IOTAクライアントライブラリとその依存関係を含む`node_modules`ディレクトリができました。
     <!-- You now have a package.json file and a `node_modules` directory, which contains the IOTA client libraries and their dependencies. -->
@@ -69,70 +69,70 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
 4. IOTAクライアントライブラリが必要です。
 <!-- 4. Require the IOTA client libraries -->
 
-    ```js
-    // Require the IOTA libraries
-    const Iota = require('@iota/core');
-    const Converter = require('@iota/converter');
-    ```
+  ```js
+  // Require the IOTA libraries
+  const Iota = require('@iota/core');
+  const Converter = require('@iota/converter');
+  ```
 5. ノードに接続します。
 <!-- 5. Connect to a node -->
 
-    ```js
-    // Create a new instance of the IOTA object
-    // Use the `provider` field to specify which IRI node to connect to
-    const iota = Iota.composeAPI({
-    provider: 'https://nodes.devnet.iota.org:443'
-    });
-    ```
+  ```js
+  // Create a new instance of the IOTA object
+  // Use the `provider` field to specify which IRI node to connect to
+  const iota = Iota.composeAPI({
+  provider: 'https://nodes.devnet.iota.org:443'
+  });
+  ```
 
 6. `getNodeInfo()`メソッドを呼び出して結果をコンソールに出力します。
 <!-- 6. Call the `getNodeInfo()` method and print the results to the console -->
 
-    ```js
-    // Call the `getNodeInfo()` method for information about the IRI node
-    iota.getNodeInfo()
-    // Convert the returned object to JSON to make the output more readable
-    .then(info => console.log(JSON.stringify(info, null, 1)))
-    .catch(err => {
-        // Catch any errors
-        console.log(err);
-    });
-    ```
+  ```js
+  // Call the `getNodeInfo()` method for information about the IRI node
+  iota.getNodeInfo()
+  // Convert the returned object to JSON to make the output more readable
+  .then(info => console.log(JSON.stringify(info, null, 1)))
+  .catch(err => {
+      // Catch any errors
+      console.log(err);
+  });
+  ```
 
 7. ファイルを保存し、コードを実行します。
 <!-- 7. Save the file and run the code -->
 
-    ```bash
-    node index.js
-    ```
+  ```bash
+  node index.js
+  ```
 
     接続しているIRIノードに関する情報が標準出力に表示されます。
     <!-- Some information about the IRI node that you're connected to should be displayed in the output. -->
 
-    ```json
-    {
-     "appName": "IRI Testnet",
-     "appVersion": "1.5.6-RELEASE",
-     "jreAvailableProcessors": 8,
-     "jreFreeMemory": 12052395632,
-     "jreVersion": "1.8.0_181",
-     "jreMaxMemory": 22906667008,
-     "jreTotalMemory": 16952328192,
-     "latestMilestone": "FPRSBTMKOP9JTTQSHWRGMPT9PBKYWFCCFLZLNWQDFRCXDDHZEFIEDXRIJYIMVGCXYQRHSZQYCTWXJM999",
-     "latestMilestoneIndex": 1102841,
-     "latestSolidSubtangleMilestone": "FPRSBTMKOP9JTTQSHWRGMPT9PBKYWFCCFLZLNWQDFRCXDDHZEFIEDXRIJYIMVGCXYQRHSZQYCTWXJM999",
-     "latestSolidSubtangleMilestoneIndex": 1102841,
-     "milestoneStartIndex": 434525,
-     "neighbors": 3,
-     "packetsQueueSize": 0,
-     "time": 1549482118137,
-     "tips": 153,
-     "transactionsToRequest": 0,
-     "features": ["snapshotPruning", "dnsRefresher", "testnet", "zeroMessageQueue", "tipSolidification", "RemotePOW"],
-     "coordinatorAddress": "EQQFCZBIHRHWPXKMTOLMYUYPCN9XLMJPYZVFJSAY9FQHCCLWTOLLUGKKMXYFDBOOYFBLBI9WUEILGECYM",
-     "duration": 0
-    }
-    ```
+  ```json
+  {
+   "appName": "IRI Testnet",
+   "appVersion": "1.5.6-RELEASE",
+   "jreAvailableProcessors": 8,
+   "jreFreeMemory": 12052395632,
+   "jreVersion": "1.8.0_181",
+   "jreMaxMemory": 22906667008,
+   "jreTotalMemory": 16952328192,
+   "latestMilestone": "FPRSBTMKOP9JTTQSHWRGMPT9PBKYWFCCFLZLNWQDFRCXDDHZEFIEDXRIJYIMVGCXYQRHSZQYCTWXJM999",
+   "latestMilestoneIndex": 1102841,
+   "latestSolidSubtangleMilestone": "FPRSBTMKOP9JTTQSHWRGMPT9PBKYWFCCFLZLNWQDFRCXDDHZEFIEDXRIJYIMVGCXYQRHSZQYCTWXJM999",
+   "latestSolidSubtangleMilestoneIndex": 1102841,
+   "milestoneStartIndex": 434525,
+   "neighbors": 3,
+   "packetsQueueSize": 0,
+   "time": 1549482118137,
+   "tips": 153,
+   "transactionsToRequest": 0,
+   "features": ["snapshotPruning", "dnsRefresher", "testnet", "zeroMessageQueue", "tipSolidification", "RemotePOW"],
+   "coordinatorAddress": "EQQFCZBIHRHWPXKMTOLMYUYPCN9XLMJPYZVFJSAY9FQHCCLWTOLLUGKKMXYFDBOOYFBLBI9WUEILGECYM",
+   "duration": 0
+  }
+  ```
 
     :::info:表示された内容に関しては以下を参照ください。
     [`getNodeInfo()` APIリファレンス](root://iri/0.1/references/api-reference.md#getnodeinfo)
@@ -163,10 +163,10 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
 1. `index.js`ファイルの最後に、メッセージの送信先アドレスを格納するための変数を作成します。
 <!-- 1. . At the end of the `index.js` file, create a variable to store the address to which you want to send a message -->
 
-    ```js
-    const address =
-    'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD';
-    ```
+  ```js
+  const address =
+  'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD';
+  ```
 
     :::info:
     このアドレスは誰にも属している必要はありません。有効であるためには、アドレスはただ81[トライト](root://iota-basics/0.1/concepts/trinary.md)で構成されている必要があります。
@@ -176,10 +176,10 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
 2. シードを格納するための変数を作成します。これは、メッセージの送信元アドレスを取得するために使用されます。
 <!-- 2. Create a variable to store your seed, which will be used to derive an address from which to send the message -->
 
-    ```js
-    const seed =
-    'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
-    ```
+  ```js
+  const seed =
+  'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
+  ```
 
     :::info:
     シードには、81文字の文字コードが含まれている必要があります。シードが81文字未満の場合、ライブラリは末尾に9を追加して81文字にします。
@@ -189,9 +189,9 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
 3. アドレスに送信したいメッセージを作成し、それをトライトに変換します。
 <!-- 3. Create a message that you want to send to the address and convert it to trytes -->
 
-    ```js
-    const message = Converter.asciiToTrytes('Hello World!');
-    ```
+  ```js
+  const message = Converter.asciiToTrytes('Hello World!');
+  ```
 
     :::info:
     IOTAネットワークは、[トライトにエンコードされた](root://iota-basics/0.1/concepts/trinary.md)メッセージのみを受け入れます。
@@ -206,15 +206,15 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
 4. トークン量、送信するメッセージ、および送信先のアドレスを指定する転送オブジェクトを作成します。
 <!-- 4. Create a transfer object that specifies the value, message to send, and the address to send it to -->
 
-    ```js
-    const transfers = [
-    {
-        value: 0,
-        address: address,
-        message: message
-    }
-    ];
-    ```
+  ```js
+  const transfers = [
+  {
+      value: 0,
+      address: address,
+      message: message
+  }
+  ];
+  ```
 
     :::info:トランザクションフィールド
     <!-- :::info:Transaction fields -->
@@ -228,19 +228,19 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
 5. `transfers`配列を[`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers)メソッドに渡して[バンドル](../introduction/what-is-a-bundle.md)を作成します。このメソッドは、転送オブジェクトからバンドルを作成します。それから、バンドルのトライトを`sendTrytes()`メソッドに渡して、[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)、[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)を行い、バンドルを[ノード](../introduction/what-is-a-node.md)に送信します。
 <!-- 5. Pass the `transfers` array to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method to construct a [bundle](../introduction/what-is-a-bundle.md). This method creates a bundle from the transfer object. Then, pass the bundle's trytes to the `sendTrytes()` method to do [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), and send the bundle to the [node](../introduction/what-is-a-node.md) -->
 
-    ```js
-    iota.prepareTransfers(seed, transfers)
-        .then(trytes => {
-            return iota.sendTrytes(trytes, 3/*depth*/, 9/*minimum weight magnitude*/)
-        })
-        .then(bundle => {
-        console.log(`Bundle: ${JSON.stringify(bundle, null, 1)}`)
-    })
-    .catch(err => {
-            // Catch any errors
-        console.log(err);
-    });
-    ```
+  ```js
+  iota.prepareTransfers(seed, transfers)
+      .then(trytes => {
+          return iota.sendTrytes(trytes, 3/*depth*/, 9/*minimum weight magnitude*/)
+      })
+      .then(bundle => {
+      console.log(`Bundle: ${JSON.stringify(bundle, null, 1)}`)
+  })
+  .catch(err => {
+          // Catch any errors
+      console.log(err);
+  });
+  ```
 
     :::info:Depth
     `depth`引数はチップ選択に影響します。`depth`が深ければ深いほど（タングルの奥に戻るほど）、重み付けされたランダムウォークが始まります。
@@ -258,9 +258,9 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
 6. ファイルを保存して、コードを実行する。
 <!-- 6. Save the file and run the code -->
 
-    ```bash
-    node index.js
-    ```
+  ```bash
+  node index.js
+  ```
 
 :::success:おめでとうございます:tada:
 <!-- :::success:Congratulations :tada: -->

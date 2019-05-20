@@ -23,9 +23,9 @@
 1. コマンドプロンプトで次の操作を行います。
 <!-- 1. Do the following in a command prompt: -->
 
-    ```bash
-    cat /dev/urandom |tr -dc A-Z9|head -c${1:-81}
-    ```
+  ```bash
+  cat /dev/urandom |tr -dc A-Z9|head -c${1:-81}
+  ```
 
 2. 81文字の出力をコピーしてどこかにペーストします。後でシードが必要になります。今すぐシードをバックアップするのは良い考えです。
 <!-- 2. Copy and paste the 81 character output somewhere. You'll need the seed later. It's a good idea to back up your seed now. -->
@@ -36,9 +36,9 @@
 1. コマンドプロンプトで次の操作を行います。
 <!-- 1. Do the following in a command prompt: -->
 
-    ```bash
-    cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1
-    ```
+  ```bash
+  cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1
+  ```
 
 2. 81文字の出力をコピーしてどこかにペーストします。後でシードが必要になります。今すぐシードをバックアップするのは良い考えです。
 <!-- 2. Copy and paste the 81 character output somewhere. You'll need the seed later. It's a good idea to back up your seed now. -->
