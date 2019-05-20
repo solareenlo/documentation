@@ -106,8 +106,8 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
   node index.js
   ```
 
-    接続しているIRIノードに関する情報が標準出力に表示されます。
-    <!-- Some information about the IRI node that you're connected to should be displayed in the output. -->
+  接続しているIRIノードに関する情報が標準出力に表示されます。
+  <!-- Some information about the IRI node that you're connected to should be displayed in the output. -->
 
   ```json
   {
@@ -136,9 +136,10 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
 
   :::info:表示された内容に関しては以下を参照ください。
   [`getNodeInfo()` APIリファレンス](root://iri/0.1/references/api-reference.md#getnodeinfo)
+  :::
   <!-- :::info:Want to know what these fields mean? -->
   <!-- [Take a look at the `getNodeInfo()` API reference](root://iri/0.1/references/api-reference.md#getnodeinfo). -->
-  :::
+  <!-- ::: -->
 
 :::success:
 ノードへの接続を確認しました。次にノードにトランザクションを送ることができます。
@@ -170,8 +171,10 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
 
   :::info:
   このアドレスは誰にも属している必要はありません。有効であるためには、アドレスはただ81[トライト](root://iota-basics/0.1/concepts/trinary.md)で構成されている必要があります。
-  <!-- This address does not have to belong to anyone. To be valid, the address just needs to consist of 81 [trytes](root://iota-basics/0.1/concepts/trinary.md). -->
   :::
+  <!-- :::info: -->
+  <!-- This address does not have to belong to anyone. To be valid, the address just needs to consist of 81 [trytes](root://iota-basics/0.1/concepts/trinary.md). -->
+  <!-- ::: -->
 
 2. シードを格納するための変数を作成します。これは、メッセージの送信元アドレスを取得するために使用されます。
 <!-- 2. Create a variable to store your seed, which will be used to derive an address from which to send the message -->
@@ -183,8 +186,10 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
 
   :::info:
   シードには、81文字の文字コードが含まれている必要があります。シードが81文字未満の場合、ライブラリは末尾に9を追加して81文字にします。
-  <!-- Seeds must contain 81 tryte-encoded characters. If a seed consists of less than 81 characters, the library will append 9s to the end of it to make 81 characters. -->
   :::
+  <!-- :::info: -->
+  <!-- Seeds must contain 81 tryte-encoded characters. If a seed consists of less than 81 characters, the library will append 9s to the end of it to make 81 characters. -->
+  <!-- ::: -->
 
 3. アドレスに送信したいメッセージを作成し、それをトライトに変換します。
 <!-- 3. Create a message that you want to send to the address and convert it to trytes -->
@@ -200,8 +205,10 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
 
   :::info:
   `asciiToTrytes()`メソッドは[基本的なASCII文字](https://en.wikipedia.org/wiki/ASCII#Printable_characters)のみをサポートします。その結果、アクセントやウムラウトなどの発音区別符号はサポートされず、`INVALID_ASCII_CHARS`エラーが発生します。
-  <!-- The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error. -->
   :::
+  <!-- :::info: -->
+  <!-- The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error. -->
+  <!-- ::: -->
 
 4. トークン量、送信するメッセージ、および送信先のアドレスを指定する転送オブジェクトを作成します。
 <!-- 4. Create a transfer object that specifies the value, message to send, and the address to send it to -->
@@ -217,13 +224,15 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
   ```
 
   :::info:トランザクションフィールド
-  <!-- :::info:Transaction fields -->
   トランザクションは[他のフィールド](root://iota-basics/0.1/references/structure-of-a-transaction.md)も含まれますが、トークン量・メッセージ・アドレスのフィールドだけでゼロトークントランザクションを送信できます。
-  <!-- A transaction consists of [other fields](root://iota-basics/0.1/references/structure-of-a-transaction.md), but these ones are all you need to send a zero-value transaction. -->
 
   メッセージはトランザクションの`signatureMessageFragment`フィールドに入れられます。
-  <!-- The message is put in the `signatureMessageFragment` field of the transaction. -->
   :::
+  <!-- :::info:Transaction fields -->
+  <!-- A transaction consists of [other fields](root://iota-basics/0.1/references/structure-of-a-transaction.md), but these ones are all you need to send a zero-value transaction. -->
+
+  <!-- The message is put in the `signatureMessageFragment` field of the transaction. -->
+  <!-- ::: -->
 
 5. `transfers`配列を[`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers)メソッドに渡して[バンドル](../introduction/what-is-a-bundle.md)を作成します。このメソッドは、転送オブジェクトからバンドルを作成します。それから、バンドルのトライトを`sendTrytes()`メソッドに渡して、[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)、[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)を行い、バンドルを[ノード](../introduction/what-is-a-node.md)に送信します。
 <!-- 5. Pass the `transfers` array to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method to construct a [bundle](../introduction/what-is-a-bundle.md). This method creates a bundle from the transfer object. Then, pass the bundle's trytes to the `sendTrytes()` method to do [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), and send the bundle to the [node](../introduction/what-is-a-node.md) -->
@@ -244,16 +253,21 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
 
   :::info:Depth
   `depth`引数はチップ選択に影響します。`depth`が深ければ深いほど（タングルの奥に戻るほど）、重み付けされたランダムウォークが始まります。
-  <!-- The `depth` argument affect tip selection. The greater the depth, the farther back in the Tangle the weighted random walk starts. -->
   :::
+  <!-- :::info:Depth -->
+  <!-- The `depth` argument affect tip selection. The greater the depth, the farther back in the Tangle the weighted random walk starts. -->
+  <!-- ::: -->
 
   :::info:Minimum weight magnitude
   [`minimum weight magnitude`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（MWM）引数は、プルーフオブワーク（PoW）の困難さに影響を与えます。 MWMが大きいほど、PoWがより困難になります。
-  <!-- The [`minimum weight magnitude`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW. -->
 
   すべてのIOTAネットワークはそれぞれのMWMを実施します。 Devnetでは、MWMは9ですが、MainnetではMWMは14です。小さすぎるMWMを使用すると、トランザクションは無効になります。
-  <!-- Every IOTA network enforces its own MWM. On the Devnet, the MWM is 9. But, on the Mainnet the MWM is 14. If you use a MWM that's too small, your transactions won't be valid. -->
   :::
+  <!-- :::info:Minimum weight magnitude -->
+  <!-- The [`minimum weight magnitude`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW. -->
+
+  <!-- Every IOTA network enforces its own MWM. On the Devnet, the MWM is 9. But, on the Mainnet the MWM is 14. If you use a MWM that's too small, your transactions won't be valid. -->
+  <!-- ::: -->
 
 6. ファイルを保存して、コードを実行する。
 <!-- 6. Save the file and run the code -->
@@ -263,10 +277,11 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
   ```
 
 :::success:おめでとうございます:tada:
-<!-- :::success:Congratulations :tada: -->
 最初のゼロトークントランザクションを送信できました。
-<!-- You've just sent your first zero-value transaction. -->
 :::
+<!-- :::success:Congratulations :tada: -->
+<!-- You've just sent your first zero-value transaction. -->
+<!-- ::: -->
 
 コンソールには、送信した[バンドル](../introduction/what-is-a-bundle.md)内のトランザクションに関する情報が表示されます。
 <!-- In the console, you'll see information about the transaction in the [bundle](../introduction/what-is-a-bundle.md) that you sent. -->
@@ -283,10 +298,11 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/51-Send-ASCII-Data?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 :::info:トランザクションフィールドの意味は？
-<!-- :::info:Want to know what the transaction fields mean? -->
 [トランザクションの構造](root://iota-basics/0.1/references/structure-of-a-transaction.md)
-<!-- [Take a look at the structure of a transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md). -->
 :::
+<!-- :::info:Want to know what the transaction fields mean? -->
+<!-- [Take a look at the structure of a transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md). -->
+<!-- ::: -->
 
 ## 次のステップ
 <!-- ## Next steps -->
@@ -301,13 +317,15 @@ Parent transactionsはチップ選択中に選択され、送信したトラン�
 <!-- These transactions were chosen during tip selection and added to the [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md) of your transaction. -->
 
 :::info:より多くのトランザクションをまとめて送信したいですか？
-<!-- :::info:Want to send more transactions in a bundle? -->
 [2つのトランザクションを含むバンドルを送信](root://iota-basics/0.1/how-to-guides/send-bundle.md)して、バンドルがどのように構成されているかを学んでみましょう。
-<!-- [Send a bundle of two transactions](root://iota-basics/0.1/how-to-guides/send-bundle.md) and learn how bundles are structured. -->
 :::
+<!-- :::info:Want to send more transactions in a bundle? -->
+<!-- [Send a bundle of two transactions](root://iota-basics/0.1/how-to-guides/send-bundle.md) and learn how bundles are structured. -->
+<!-- ::: -->
 
 :::info:ノードを走らせたいですか？
-<!-- :::info:Interested in running a node? -->
 [ノードソフトウェアの詳細](root://iri/0.1/introduction/overview.md)を調べ、[ノードの実行に関する詳細なガイド](root://iri/0.1/how-to-guides/run-an-iri-node-on-linux.md)をご覧ください。
-<!-- [Discover more about node software](root://iri/0.1/introduction/overview.md) and [follow an in-depth guide on running a node](root://iri/0.1/how-to-guides/run-an-iri-node-on-linux.md). -->
 :::
+<!-- :::info:Interested in running a node? -->
+<!-- [Discover more about node software](root://iri/0.1/introduction/overview.md) and [follow an in-depth guide on running a node](root://iri/0.1/how-to-guides/run-an-iri-node-on-linux.md). -->
+<!-- ::: -->
