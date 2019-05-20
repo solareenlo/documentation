@@ -134,7 +134,7 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
   }
   ```
 
-  :::info:表示された内容に関しては以下を参照ください。
+  :::info:これらのフィールドの意味を知りたいですか？
   [`getNodeInfo()` APIリファレンス](root://iri/0.1/references/api-reference.md#getnodeinfo)
   :::
   <!-- :::info:Want to know what these fields mean? -->
@@ -200,8 +200,10 @@ IOTAでは、トランザクションは[ノード](../introduction/what-is-a-no
 
   :::info:
   IOTAネットワークは、[トライトにエンコードされた](root://iota-basics/0.1/concepts/trinary.md)メッセージのみを受け入れます。
-  <!-- IOTA networks accept only [tryte-encoded](root://iota-basics/0.1/concepts/trinary.md) messages. -->
   :::
+  <!-- :::info: -->
+  <!-- IOTA networks accept only [tryte-encoded](root://iota-basics/0.1/concepts/trinary.md) messages. -->
+  <!-- ::: -->
 
   :::info:
   `asciiToTrytes()`メソッドは[基本的なASCII文字](https://en.wikipedia.org/wiki/ASCII#Printable_characters)のみをサポートします。その結果、アクセントやウムラウトなどの発音区別符号はサポートされず、`INVALID_ASCII_CHARS`エラーが発生します。
