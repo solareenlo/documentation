@@ -49,8 +49,8 @@
 1. [KeePassインストーラー](https://keepass.info/)をダウンロードします。
 <!-- 1. [Download the KeePass installer](https://keepass.info/) -->
 
-    KeePassは、高度に暗号化されたデータベースにパスワードを保存するパスワードマネージャです。データベースは、1つのマスターパスワードまたはキーファイルでロック解除できます。
-    <!-- KeePass is a password manager that stores passwords in highly-encrypted databases, which can be unlocked with one master password or key file. -->
+  KeePassは、高度に暗号化されたデータベースにパスワードを保存するパスワードマネージャです。データベースは、1つのマスターパスワードまたはキーファイルでロック解除できます。
+  <!-- KeePass is a password manager that stores passwords in highly-encrypted databases, which can be unlocked with one master password or key file. -->
 
 2. インストーラを開き、画面上の指示に従います。
 <!-- 2. Open the installer and follow the on-screen instructions -->
@@ -58,24 +58,24 @@
 3. Keepassを開き、**New**をクリックします。
 <!-- 3. Open KeePass and click **New** -->
 
-    ![A new KeePass database](../images/keypass-new.png)
+  ![A new KeePass database](../images/keypass-new.png)
 
 4. 指示に従い、KeePassファイルをコンピューターに保存したら、空白の部分を右クリックして**Add entry**をクリックします。
 <!-- 4. After you've followed the instructions and saved the KeePass file on your computer, right click the empty space and click **Add entry** -->
 
-    ![A new KeePass entry](../images/keepass-add-entry.png)
+  ![A new KeePass entry](../images/keepass-add-entry.png)
 
 5. **Generate a password**をクリックします。
 <!-- 5. Click **Generate a password** -->
 
-    ![Keepass password generator](../images/keypass-password-generator.png)
+  ![Keepass password generator](../images/keypass-password-generator.png)
 
 6. 以下のオプションのみを選択して、**OK**をクリックしてください。
 <!-- 6. Select only the following options and click **OK**: -->
 
-    * Length of generated password: 81
-    * Upper-case (A, B, C, ...)
-    * Also include the following characters: 9
+  * Length of generated password: 81
+  * Upper-case (A, B, C, ...)
+  * Also include the following characters: 9
 
 7. **OK**をクリックしてシードを保存します。
 <!-- 7. Click **OK** to save your seed -->
