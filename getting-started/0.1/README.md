@@ -1,6 +1,6 @@
 # An introduction to IOTA
 
-This section introduces users to IOTA by giving them a foundation of knowledge that they can build on through each section of the documentation portal. 
+This section introduces users to IOTA by giving them a foundation of knowledge that they can build on through each section of the documentation portal.
 
 ## Documentation
 
@@ -10,7 +10,7 @@ This section introduces users to IOTA by giving them a foundation of knowledge t
     - [Introduction/What is a seed?](/introduction/what-is-a-seed.md)
     - [Introduction/What is a transaction?](/introduction/what-is-a-transaction.md)
     - [Introduction/What is a node?](/introduction/what-is-a-node.md)
-  
+
 - Tutorials
     - [Get started](/tutorials/first-steps.md)
     - [Create a seed](/tutorials/create-a-seed.md)
