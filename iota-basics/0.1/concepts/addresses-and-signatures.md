@@ -110,8 +110,8 @@ IOTAでは、[各アドレスから一度だけIOTAトークンを引き出す�
 正規化されたバンドルハッシュの選択されたトライトは、[10進数に変換](../references/tryte-alphabet.md)されます。次に、それぞれについて次の計算が実行されます。
 <!-- The selected trytes of the normalized bundle hash are [converted to their decimal values](../references/tryte-alphabet.md). Then, the following calculation is performed on each of them: -->
 
-  13 - 10進数の値
-  <!-- 13 - decimal value -->
+    13 - 10進数の値
+    <!-- 13 - decimal value -->
 
 この計算結果は、署名フラグメントを導出するためにキーフラグメント内の27のセグメントのそれぞれがハッシュ化されなければならない回数です。各署名フラグメントには2,187トライトが含まれています。
 <!-- The result of this calculation is the number of times that each of the 27 segments in the key fragment must be hashed to derive the signature fragment. Each signature fragment contains 2,187 trytes. -->
@@ -134,8 +134,8 @@ IOTAでは、[各アドレスから一度だけIOTAトークンを引き出す�
 正規化されたバンドルハッシュの選択されたトライトは[10進数に変換](../references/tryte-alphabet.md)されます。次に、それぞれについて次の計算が実行されます。
 <!-- The selected trytes of the normalized bundle hash are [converted to decimal values](../references/tryte-alphabet.md). Then, the following calculation is performed on each of them: -->
 
-  13 + 10進数の値
-  <!-- 13 + decimal value -->
+    13 + 10進数の値
+    <!-- 13 + decimal value -->
 
 この計算の結果は、署名フラグメント内の27個のセグメントのそれぞれがキーフラグメントを導出するためにハッシュ化されなければならない回数です。
 <!-- The result of this calculation is the number of times that each of the 27 segments in the signature fragments must be hashed to derive the key fragments. -->
