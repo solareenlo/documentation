@@ -1,30 +1,46 @@
-# Addresses and signatures
+# アドレスと署名
+<!-- # Addresses and signatures -->
 
-**Each client in an IOTA network has a secret password called a seed, which is used to derive addresses and to sign bundles. Addresses are the accounts that hold IOTA tokens and signatures prove ownership of an address.**
+**IOTAネットワーク内の各クライアントには、シードと呼ばれる秘密のパスワードがあります。シードは、アドレスの生成とバンドルの署名に使用されます。アドレスはIOTAトークンを保持するアカウントで、署名はアドレスの所有権を証明します。**
+<!-- **Each client in an IOTA network has a secret password called a seed, which is used to derive addresses and to sign bundles. Addresses are the accounts that hold IOTA tokens and signatures prove ownership of an address.** -->
 
-To use an IOTA network, clients must [create a seed and keep it private](root://getting-started/0.1/tutorials/create-a-seed.md). A seed is a string of 81 [trytes](../references/tryte-alphabet.md) that gives a client access to addresses.  
- 
-Seeds are the master keys to the cryptographic hashing function in the IOTA protocol. Each seed can derive an almost unlimited number of unique private keys and addresses (9<sup>57</sup>).
+IOTAネットワークを使用するには、クライアントは[シードを作成して秘密にする](root://getting-started/0.1/tutorials/create-a-seed.md)必要があります。シードとは、クライアントにアドレスへのアクセスを許可する81[トライト](../references/tryte-alphabet.md)の文字列です。
+<!-- To use an IOTA network, clients must [create a seed and keep it private](root://getting-started/0.1/tutorials/create-a-seed.md). A seed is a string of 81 [trytes](../references/tryte-alphabet.md) that gives a client access to addresses. -->
 
-Each private key is unique to a seed, index, and security level, and can be used to derive one corresponding address. A private key and an address can be thought of as a pair. Addresses are public and clients can send IOTA tokens and messages to them using the [`address` field] of a transaction. A private key is private and is used to sign bundles that withdraw IOTA tokens from the address.
+シードは、IOTAプロトコルの暗号化ハッシュ関数のマスターキーです。各シードは、ほぼ無制限の固有の秘密鍵とアドレス（9<sup>57</sup>）を導き出すことができます（957）。
+<!-- Seeds are the master keys to the cryptographic hashing function in the IOTA protocol. Each seed can derive an almost unlimited number of unique private keys and addresses (9<sup>57</sup>). -->
 
-Each pair of private keys and addresses has its own index and [security level](../references/security-levels.md). The security level affects the length of the private key. The greater the security level, the longer the private key, and the more secure a transaction's signature.
+各秘密鍵は、シード、インデックス、およびセキュリティレベルによって固有のものであり、対応する1つのアドレスを取得するために使用できます。秘密鍵とアドレスはペアと考えることができます。アドレスは公開されており、クライアントはトランザクションの`アドレス`フィールドを使用してIOTAトークンとメッセージを送信できます。秘密鍵は秘密であり、アドレスからIOTAトークンを引き出すバンドルに署名するために使用されます。
+<!-- Each private key is unique to a seed, index, and security level, and can be used to derive one corresponding address. A private key and an address can be thought of as a pair. Addresses are public and clients can send IOTA tokens and messages to them using the [`address` field] of a transaction. A private key is private and is used to sign bundles that withdraw IOTA tokens from the address. -->
 
-In IOTA, multiple pairs of private keys and addresses are needed because [each address can be withdrawn from (spent) only once](#address-reuse). So, each time you withdraw from an address, you must [create a new address](../how-to-guides/create-an-address.md) by either incrementing the index or changing the security level.
+秘密鍵とアドレスの各ペアには、独自のインデックスと[セキュリティレベル](../references/security-levels.md)があります。セキュリティレベルは秘密鍵の長さに影響します。セキュリティレベルが高いほど、秘密鍵が長くなり、トランザクションの署名がより安全になります。
+<!-- Each pair of private keys and addresses has its own index and [security level](../references/security-levels.md). The security level affects the length of the private key. The greater the security level, the longer the private key, and the more secure a transaction's signature. -->
+
+IOTAでは、[各アドレスから一度だけIOTAトークンを引き出す（支払う）ことができる](#address-reuse)ため、秘密鍵とアドレスの複数のペアが必要です。そのため、アドレスからIOTAトークンを引き出すたびに、インデックスをインクリメントするかセキュリティレベルを変更して、[新しいアドレスを作成する](../how-to-guides/create-an-address.md)必要があります。
+<!-- In IOTA, multiple pairs of private keys and addresses are needed because [each address can be withdrawn from (spent) only once](#address-reuse). So, each time you withdraw from an address, you must [create a new address](../how-to-guides/create-an-address.md) by either incrementing the index or changing the security level. -->
 
 :::info:
-The greater the security level of a private key and address pair, the more difficult it is for an attacker to brute force the signature of a spent address.
+秘密鍵とアドレスのペアのセキュリティレベルが高いほど、攻撃者が使用済みアドレスの署名を総当たり攻撃することはより困難になります。
 :::
+<!-- :::info: -->
+<!-- The greater the security level of a private key and address pair, the more difficult it is for an attacker to brute force the signature of a spent address. -->
+<!-- ::: -->
 
-:::warning:Keep seeds and private keys secure
-A seed is the key to all your private keys and addresses. And, a private key is the key to one address.
+:::warning:シードと秘密鍵を安全に保管してください。
+シードはすべての秘密鍵とアドレスへの鍵です。そして、秘密鍵は1つのアドレスへの鍵です。
 
-You must keep your seeds and private keys secure.
+シードと秘密鍵を安全に保たなければなりません。
 :::
+<!-- :::warning:Keep seeds and private keys secure -->
+<!-- A seed is the key to all your private keys and addresses. And, a private key is the key to one address. -->
+<!--  -->
+<!-- You must keep your seeds and private keys secure. -->
+<!-- ::: -->
 
-### How private keys are derived
+### 秘密鍵の導出方法
+<!-- ### How private keys are derived -->
 
-Each private key is derived from a cryptographic hashing function that takes a seed, an index, and a security level. 
+Each private key is derived from a cryptographic hashing function that takes a seed, an index, and a security level.
 
 The seed and index are combined and hashed, using the [Keccak-384 hashing function](https://keccak.team/keccak.html) to derive an 81-tryte **subseed**:
 
