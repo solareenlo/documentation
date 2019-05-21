@@ -40,73 +40,108 @@ IOTAでは、[各アドレスから一度だけIOTAトークンを引き出す�
 ### 秘密鍵の導出方法
 <!-- ### How private keys are derived -->
 
-Each private key is derived from a cryptographic hashing function that takes a seed, an index, and a security level.
+各秘密鍵は、シード、インデックス、およびセキュリティレベルを使った暗号学的ハッシュ関数から導出されます。
+<!-- Each private key is derived from a cryptographic hashing function that takes a seed, an index, and a security level. -->
 
-The seed and index are combined and hashed, using the [Keccak-384 hashing function](https://keccak.team/keccak.html) to derive an 81-tryte **subseed**:
+[Keccak-384ハッシュ関数](https://keccak.team/keccak.html)を使用してシードとインデックスを組み合わせてハッシュ化し、81トライトの**サブシード**を導き出します。
+<!-- The seed and index are combined and hashed, using the [Keccak-384 hashing function](https://keccak.team/keccak.html) to derive an 81-tryte **subseed**: -->
 
-    hash(seed + index)
+  hash(seed + index)
 
-To derive a private key, the subseed is passed to a [cryptographic sponge function](https://en.wikipedia.org/wiki/Sponge_function), which absorbs it and squeezes it 27 times per security level.
+秘密鍵を導出するために、サブシードは[スポンジ関数](https://en.wikipedia.org/wiki/Sponge_function)に渡されます。スポンジ関数はサブシードを圧縮し、セキュリティレベルごとに27回撹拌します。
+<!-- To derive a private key, the subseed is passed to a [cryptographic sponge function](https://en.wikipedia.org/wiki/Sponge_function), which absorbs it and squeezes it 27 times per security level. -->
 
-The result of the sponge function is a private key that consists of 2,187, 4,374, or 6,561 trytes, depending on the [security level](../references/security-levels.md).
+スポンジ関数の結果は、[セキュリティレベル](../references/security-levels.md)に応じて、2,187、4,374、または6,561トライトからなる秘密鍵です。
+<!-- The result of the sponge function is a private key that consists of 2,187, 4,374, or 6,561 trytes, depending on the [security level](../references/security-levels.md). -->
 
-### How addresses are derived
+### アドレスの導出方法
+<!-- ### How addresses are derived -->
 
-To derive an address, the private key is split into **81-tryte segments**. Then, each segment is hashed 26 times. A group of 27 hashed segments is called a **key fragment**.
+アドレスを導出するために、秘密鍵は**81トライトのセグメント**に分割されます。その後、各セグメントは26回ハッシュ化されます。 27のハッシュ化されたセグメントのグループは**鍵フラグメント**と呼ばれます。
+<!-- To derive an address, the private key is split into **81-tryte segments**. Then, each segment is hashed 26 times. A group of 27 hashed segments is called a **key fragment**. -->
 
-Because a private key consists of 2,187, 4,374, or 6,561 trytes, a private key has one key fragments for each security level. For example, a private key with security level 1 consists of 2,187 trytes, which is 27 segments, which results in one key fragment.
+秘密鍵は2,187、4374、または6,561トライトで構成されているため、秘密鍵にはセキュリティレベルごとに1つのキーフラグメントがあります。たとえば、セキュリティレベル1の秘密鍵は2,187トライトで構成されています。これは27のセグメントで、1つのキーフラグメントになります。
+<!-- Because a private key consists of 2,187, 4,374, or 6,561 trytes, a private key has one key fragments for each security level. For example, a private key with security level 1 consists of 2,187 trytes, which is 27 segments, which results in one key fragment. -->
 
-Each key fragment is hashed once to derive one **key digest** for each security level. For example, one key fragment results in one key digest.
+各キーフラグメントは、セキュリティレベルごとに1つの**キーダイジェスト**を導出するために一度ハッシュ化されます。たとえば、1つのキーフラグメントによって1つのキーダイジェストが生成されます。
+<!-- Each key fragment is hashed once to derive one **key digest** for each security level. For example, one key fragment results in one key digest. -->
 
-Then, the key digests are combined and hashed once to derive an 81-tryte address.
+次に、キーダイジェストが結合されて一度ハッシュ化され、81トライトのアドレスが導出されます。
+<!-- Then, the key digests are combined and hashed once to derive an 81-tryte address. -->
 
-:::info:Want to try this out?
-Use the JavaScript client library to [derive addresses from private keys](../how-to-guides/derive-addresses-from-private-keys.md).
+:::info:アドレスを生成してみますか？
+[秘密鍵からアドレスを導出する](../how-to-guides/derive-addresses-from-private-keys.md)には、JavaScriptクライアントライブラリをご使用ください。
 :::
+<!-- :::info:Want to try this out? -->
+<!-- Use the JavaScript client library to [derive addresses from private keys](../how-to-guides/derive-addresses-from-private-keys.md). -->
+<!-- ::: -->
 
 ![Address generation](../images/address-generation.png)
 
-### How private keys sign bundles
+### 秘密鍵でバンドルを署名する方法
+<!-- ### How private keys sign bundles -->
 
-Private keys sign the bundle hash of the transaction that withdraws from the address and put that signature in the [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) of the transaction.
+秘密鍵は、アドレスからIOTAトークンを取り出すトランザクションのバンドルハッシュに署名し、その署名をトランザクションの[`signatureMessageFragment`フィールド](../references/structure-of-a-transaction.md)に入れます。
+<!-- Private keys sign the bundle hash of the transaction that withdraws from the address and put that signature in the [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) of the transaction. -->
 
-By signing the bundle hash, it's impossible for attackers to intercept a bundle and change any transaction without changing the bundle hash and invalidating the signature.
+バンドルハッシュに署名することで、攻撃者がバンドルハッシュを変更して署名が無効になることなく、バンドルを傍受してトランザクションを変更することは不可能です。
+<!-- By signing the bundle hash, it's impossible for attackers to intercept a bundle and change any transaction without changing the bundle hash and invalidating the signature. -->
 
-Signatures are created using the Winternitz one-time signature scheme (W-OTS). This signature scheme is quantum resistant, meaning that signatures are resistant to attacks from [quantum computers](https://en.wikipedia.org/wiki/Quantum_computing).
+署名は、Winternitzワンタイム署名方式（W-OTS）を使用して作成されます。この署名スキームは量子耐性があり、署名は[量子コンピュータ](https://en.wikipedia.org/wiki/Quantum_computing)からの攻撃に対して耐性があることを意味します。
+<!-- Signatures are created using the Winternitz one-time signature scheme (W-OTS). This signature scheme is quantum resistant, meaning that signatures are resistant to attacks from [quantum computers](https://en.wikipedia.org/wiki/Quantum_computing). -->
 
-To sign a bundle hash, first it's normalized to make sure that only half of the private key is revealed in the signature.
+バンドルハッシュに署名するには、まず秘密鍵の半分だけが署名に表示されるように正規化します。
+<!-- To sign a bundle hash, first it's normalized to make sure that only half of the private key is revealed in the signature. -->
 
-If the bundle hash weren't normalized, the W-OTS would reveal an unknown amount of the private key. By revealing half of the private key, an address can safely be withdrawn from once.
+バンドルハッシュが正規化されていない場合、W-OTSは未知数の秘密鍵が明らかになります。秘密鍵の半分を明らかにすることで、アドレスから一度だけ安全にIOTAトークンを取り出すことができます。
+<!-- If the bundle hash weren't normalized, the W-OTS would reveal an unknown amount of the private key. By revealing half of the private key, an address can safely be withdrawn from once. -->
 <a id="address-reuse"></a>
 
-:::danger:Spent addresses
-If an address is withdrawn from (spent) more than once, more of the private key is revealed, so an attacker could brute force its signature and steal the IOTA tokens.
+:::danger:使用済みアドレス
+1つのアドレスが2回以上取り出しとして使用されると、より多くの秘密鍵が漏洩するため、攻撃者はその署名に総当たり攻撃を行いIOTAトークンを盗むことができます。
 :::
+<!-- :::danger:Spent addresses -->
+<!-- If an address is withdrawn from (spent) more than once, more of the private key is revealed, so an attacker could brute force its signature and steal the IOTA tokens. -->
+<!-- ::: -->
 
-Depending on the number of key fragments that a private key has, 27, 54, or 81 trytes of the normalized bundle hash are selected. These trytes correspond to the number of segments in a key fragment.
+秘密鍵が持つキーフラグメントの数に応じて、27、54、または81トライトの正規化バンドルハッシュが選択されます。3種類のトライトはキーフラグメント内のセグメント数に対応しています。
+<!-- Depending on the number of key fragments that a private key has, 27, 54, or 81 trytes of the normalized bundle hash are selected. These trytes correspond to the number of segments in a key fragment. -->
 
-The selected trytes of the normalized bundle hash are [converted to their decimal values](../references/tryte-alphabet.md). Then, the following calculation is performed on each of them:
+正規化されたバンドルハッシュの選択されたトライトは、[10進数に変換](../references/tryte-alphabet.md)されます。次に、それぞれについて次の計算が実行されます。
+<!-- The selected trytes of the normalized bundle hash are [converted to their decimal values](../references/tryte-alphabet.md). Then, the following calculation is performed on each of them: -->
 
-    13 - decimal value
+  13 - 10進数の値
+  <!-- 13 - decimal value -->
 
-The result of this calculation is the number of times that each of the 27 segments in the key fragment must be hashed to derive the signature fragment. Each signature fragment contains 2,187 trytes.
+この計算結果は、署名フラグメントを導出するためにキーフラグメント内の27のセグメントのそれぞれがハッシュ化されなければならない回数です。各署名フラグメントには2,187トライトが含まれています。
+<!-- The result of this calculation is the number of times that each of the 27 segments in the key fragment must be hashed to derive the signature fragment. Each signature fragment contains 2,187 trytes. -->
 
-Because a transaction's [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) can contain only 2187 trytes, any input address with a security level greater than 1 must fragment the rest of the signature over zero-value output transactions.
+トランザクションの[`signatureMessageFragment`フィールド](../references/structure-of-a-transaction.md)に含めることができるのは2187トリートだけなので、1より大きいセキュリティレベルを持つ入力アドレスはすべて、ゼロトークンの出力トランザクション上に残りの署名を分ける必要があります。
+<!-- Because a transaction's [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) can contain only 2187 trytes, any input address with a security level greater than 1 must fragment the rest of the signature over zero-value output transactions. -->
 
-### How nodes verify signatures
+### ノードによる署名の検証方法
+<!-- ### How nodes verify signatures -->
 
-Nodes verify a signature in a transaction by using the signature and the bundle hash to find the address of the input transaction.
+ノードは、署名とバンドルハッシュを使用して入力トランザクションのアドレスを見つけることによって、トランザクション内の署名を検証します。
+<!-- Nodes verify a signature in a transaction by using the signature and the bundle hash to find the address of the input transaction. -->
 
-To verify a signature, the bundle hash of a transaction is normalized.
+署名を検証するために、トランザクションのバンドルハッシュは正規化されます。
+<!-- To verify a signature, the bundle hash of a transaction is normalized. -->
 
-Depending on the length of the signature, 27, 54, or 81 trytes of the normalized bundle hash are selected. These trytes correspond to the number of 81-tryte segments in a signature fragment.
+署名の長さに応じて、正規化されたバンドルハッシュの27、54、または81トライトが選択されます。これらのトライトは、署名ラグメント内の81トライトセグメントの数に対応しています。
+<!-- Depending on the length of the signature, 27, 54, or 81 trytes of the normalized bundle hash are selected. These trytes correspond to the number of 81-tryte segments in a signature fragment. -->
 
-The selected trytes of the normalized bundle hash are [converted to decimal values](../references/tryte-alphabet.md). Then, the following calculation is performed on each of them:
+正規化されたバンドルハッシュの選択されたトライトは[10進数に変換](../references/tryte-alphabet.md)されます。次に、それぞれについて次の計算が実行されます。
+<!-- The selected trytes of the normalized bundle hash are [converted to decimal values](../references/tryte-alphabet.md). Then, the following calculation is performed on each of them: -->
 
-    13 + decimal value
+  13 + 10進数の値
+  <!-- 13 + decimal value -->
 
-The result of this calculation is the number of times that each of the 27 segments in the signature fragments must be hashed to derive the key fragments.
+この計算の結果は、署名フラグメント内の27個のセグメントのそれぞれがキーフラグメントを導出するためにハッシュ化されなければならない回数です。
+<!-- The result of this calculation is the number of times that each of the 27 segments in the signature fragments must be hashed to derive the key fragments. -->
 
-Each key fragment is hashed once to derive the **key digests**, which are combined and hashed once to derive an 81-tryte address.
+各キーフラグメントは、キーダイジェストを導出するために1回ハッシュ化されます。キーダイジェストは結合され、81トライトのアドレスを導出するために1回ハッシュされます。
+<!-- Each key fragment is hashed once to derive the **key digests**, which are combined and hashed once to derive an 81-tryte address. -->
 
-If the address matches the one in the transaction, the signature is valid and the withdrawal is accepted.
+アドレスがトランザクションのアドレスと一致する場合、署名は有効であり、IOTAトークンの引き出しは受け入れられます。
+<!-- If the address matches the one in the transaction, the signature is valid and the withdrawal is accepted. -->
