@@ -1,22 +1,22 @@
 # アドレスと署名
 <!-- # Addresses and signatures -->
 
-**IOTAネットワーク内の各クライアントには、シードと呼ばれる秘密のパスワードがあります。シードは、アドレスの生成とバンドルの署名に使用されます。アドレスはIOTAトークンを保持するアカウントで、署名はアドレスの所有権を証明します。**
+**IOTAネットワーク内の各クライアントには、シードと呼ばれる秘密のパスワードがあります。シードは、アドレスの導出とバンドルの署名に使用されます。アドレスはIOTAトークンを保持するアカウントで、署名はアドレスの所有権を証明します。**
 <!-- **Each client in an IOTA network has a secret password called a seed, which is used to derive addresses and to sign bundles. Addresses are the accounts that hold IOTA tokens and signatures prove ownership of an address.** -->
 
 IOTAネットワークを使用するには、クライアントは[シードを作成して秘密にする](root://getting-started/0.1/tutorials/create-a-seed.md)必要があります。シードとは、クライアントにアドレスへのアクセスを許可する81[トライト](../references/tryte-alphabet.md)の文字列です。
 <!-- To use an IOTA network, clients must [create a seed and keep it private](root://getting-started/0.1/tutorials/create-a-seed.md). A seed is a string of 81 [trytes](../references/tryte-alphabet.md) that gives a client access to addresses. -->
 
-シードは、IOTAプロトコルの暗号化ハッシュ関数のマスターキーです。各シードは、ほぼ無制限の固有の秘密鍵とアドレス（9<sup>57</sup>個）を導き出すことができます。
+シードは、IOTAプロトコルの暗号化ハッシュ関数のマスターキーです。各シードは、ほぼ無制限の固有の秘密鍵とアドレス（9<sup>57</sup>個）を導出することができます。
 <!-- Seeds are the master keys to the cryptographic hashing function in the IOTA protocol. Each seed can derive an almost unlimited number of unique private keys and addresses (9<sup>57</sup>). -->
 
-各秘密鍵は、シード、インデックス、およびセキュリティレベルによって固有のものであり、対応する1つのアドレスを取得するために使用されます。秘密鍵とアドレスはペアと考えることができます。アドレスは公開されており、クライアントはトランザクションの`アドレス`フィールドを使用してIOTAトークンとメッセージを送信できます。秘密鍵は秘密であり、アドレスからIOTAトークンを引き出すバンドルに署名するために使用されます。
+各秘密鍵は、シード、インデックス、およびセキュリティレベルによって固有のものであり、対応する1つのアドレスを取得するために使用されます。秘密鍵とアドレスは1対1のペアと考えることができます。アドレスは公開されており、クライアントはトランザクションの`アドレス`フィールドを使用してIOTAトークンとメッセージを送信できます。秘密鍵は秘密であり、アドレスからIOTAトークンを引き出すバンドルに署名するために使用されます。
 <!-- Each private key is unique to a seed, index, and security level, and can be used to derive one corresponding address. A private key and an address can be thought of as a pair. Addresses are public and clients can send IOTA tokens and messages to them using the [`address` field] of a transaction. A private key is private and is used to sign bundles that withdraw IOTA tokens from the address. -->
 
 秘密鍵とアドレスの各ペアには、独自のインデックスと[セキュリティレベル](../references/security-levels.md)があります。セキュリティレベルは秘密鍵の長さに影響します。セキュリティレベルが高いほど、秘密鍵が長くなり、トランザクションの署名がより安全になります。
 <!-- Each pair of private keys and addresses has its own index and [security level](../references/security-levels.md). The security level affects the length of the private key. The greater the security level, the longer the private key, and the more secure a transaction's signature. -->
 
-IOTAでは、署名方法の性質上、[各アドレスから一度だけしかIOTAトークンを引き出せない](#address-reuse)ため、秘密鍵とアドレスのペアが複数個必要となります。そのため、アドレスからIOTAトークンを引き出すたびに、インデックスをインクリメントするかセキュリティレベルを変更して、[新しいアドレスを作成する](../how-to-guides/create-an-address.md)必要があります。
+IOTAでは、署名方法の性質上、[各アドレスから一度だけしかIOTAトークンを引き出さない方が良い](#address-reuse)ため、秘密鍵とアドレスのペアが複数個必要となります。そのため、アドレスからIOTAトークンを引き出すたびに、インデックスをインクリメントするかセキュリティレベルを変更して、[新しいアドレスを作成する](../how-to-guides/create-an-address.md)必要があります。
 <!-- In IOTA, multiple pairs of private keys and addresses are needed because [each address can be withdrawn from (spent) only once](#address-reuse). So, each time you withdraw from an address, you must [create a new address](../how-to-guides/create-an-address.md) by either incrementing the index or changing the security level. -->
 
 :::info:
@@ -40,27 +40,27 @@ IOTAでは、署名方法の性質上、[各アドレスから一度だけしか
 ### 秘密鍵の導出方法
 <!-- ### How private keys are derived -->
 
-各秘密鍵は、シード、インデックス、およびセキュリティレベルを使った暗号学的ハッシュ関数から導出されます。
+各秘密鍵は、シード、インデックス、およびセキュリティレベルを使い暗号学的ハッシュ関数から導出されます。
 <!-- Each private key is derived from a cryptographic hashing function that takes a seed, an index, and a security level. -->
 
 [Keccak-384ハッシュ関数](https://keccak.team/keccak.html)を使用してシードとインデックスを組み合わせてハッシュ化し、81トライトの**サブシード**を導き出します。
 <!-- The seed and index are combined and hashed, using the [Keccak-384 hashing function](https://keccak.team/keccak.html) to derive an 81-tryte **subseed**: -->
 
-    hash(seed + index)
+    subseed = hash(seed + index)
 
-秘密鍵を導出するために、サブシードは[スポンジ関数](https://en.wikipedia.org/wiki/Sponge_function)に渡されます。スポンジ関数はサブシードを圧縮し、セキュリティレベルごとに27回撹拌します。
+秘密鍵を導出するために、サブシードは[スポンジ関数](https://en.wikipedia.org/wiki/Sponge_function)に渡されます。スポンジ関数はセキュリティレベル毎に27回サブシードを圧縮・撹拌します。（セキュリティレベル1だと27回圧縮と攪拌を、セキュリティレベル2だと54回圧縮と攪拌を、セキュリティレベル3だと81回圧縮と攪拌を行います。）
 <!-- To derive a private key, the subseed is passed to a [cryptographic sponge function](https://en.wikipedia.org/wiki/Sponge_function), which absorbs it and squeezes it 27 times per security level. -->
 
-スポンジ関数の結果が、[セキュリティレベル](../references/security-levels.md)に応じて、2,187、4,374、または6,561トライトからなる秘密鍵です。
+スポンジ関数の結果が、秘密鍵であり、[セキュリティレベル](../references/security-levels.md)に応じて、2,187、4,374、または6,561トライトとなります。（1回ハッシュ関数を通すごとに81トライトのダイジェストが出てきて、そのダイジェストをまたハッシュ関数に通し、セキュリティレベル1では、それを27回行う。そうすると27個のダイジェストが出てきて、その27個のダイジェストを横並びにしたものがセキュリティレベル1での秘密鍵となる。セキュリティレベル2では、27個目のダイジェストがまたハッシュ関数に渡されて28個目のダイジェストとなり、それが54回目まで行われる。そうすることで、セキュリティレベル2の秘密鍵のサイズは4,374トライトとなる。セキュリティレベル3も同様の操作を行い6,561トライトの秘密鍵が出現する。）
 <!-- The result of the sponge function is a private key that consists of 2,187, 4,374, or 6,561 trytes, depending on the [security level](../references/security-levels.md). -->
 
 ### アドレスの導出方法
 <!-- ### How addresses are derived -->
 
-アドレスを導出するために、秘密鍵は**81トライトのセグメント**に分割されます。その後、各セグメントは26回ハッシュ化されます。 27のハッシュ化されたセグメントのグループは**キーフラグメント**と呼ばれます。
+アドレスを導出するために、秘密鍵は**1つが81トライトのセグメント**に分割されます。その後、各セグメントは26回ハッシュ関数に通されます。 27個のハッシュ化されたセグメントのグループは**キーフラグメント**と呼ばれます。
 <!-- To derive an address, the private key is split into **81-tryte segments**. Then, each segment is hashed 26 times. A group of 27 hashed segments is called a **key fragment**. -->
 
-秘密鍵は2,187、4374、または6,561トライトで構成されているため、秘密鍵にはセキュリティレベルごとに1つのキーフラグメントがあります。たとえば、セキュリティレベル1の秘密鍵は2,187トライトで構成されています。これは27のセグメントからなり、1つのキーフラグメントになります。セキュリティレベル2では2つのキーフラグメント、セキュリティレベル3では3つのキーフラグメントとなります。
+秘密鍵は2,187、4374、または6,561トライトで構成されているため、秘密鍵にはセキュリティレベルごとに1つのキーフラグメントがあります。たとえば、セキュリティレベル1の秘密鍵は2,187トライトで構成されています。これは27個のセグメントからなり、1つのキーフラグメントになります。セキュリティレベル2では2つのキーフラグメント、セキュリティレベル3では3つのキーフラグメントとなります。
 <!-- Because a private key consists of 2,187, 4,374, or 6,561 trytes, a private key has one key fragments for each security level. For example, a private key with security level 1 consists of 2,187 trytes, which is 27 segments, which results in one key fragment. -->
 
 各キーフラグメントは、セキュリティレベルごとに1つの**キーダイジェスト**を導出するために1回ハッシュ化されます。たとえば、1つのキーフラグメントによって1つのキーダイジェストが生成されます。
@@ -104,7 +104,7 @@ IOTAでは、署名方法の性質上、[各アドレスから一度だけしか
 <!-- If an address is withdrawn from (spent) more than once, more of the private key is revealed, so an attacker could brute force its signature and steal the IOTA tokens. -->
 <!-- ::: -->
 
-秘密鍵が持つキーフラグメントの数に応じて、27、54、または81トライトの正規化バンドルハッシュが選択されます。3種類のトライトはキーフラグメント内のセグメントの個数に対応しています。
+秘密鍵が持つキーフラグメントの数に応じて、27、54、または81トライトの正規化されるバンドルハッシュが選択されます。（正規化されるバンドルハッシュは、バンドルをハッシュ関数に通したダイジェストの前から27トライト分、54トライト分、81トライト分のこと。）これらのトライトはキーフラグメント内のセグメントの個数に対応しています。
 <!-- Depending on the number of key fragments that a private key has, 27, 54, or 81 trytes of the normalized bundle hash are selected. These trytes correspond to the number of segments in a key fragment. -->
 
 正規化されるバンドルハッシュの各トライトは、[10進数に変換](../references/tryte-alphabet.md)されます。そして、それぞれについて次の計算が実行されます。
@@ -116,13 +116,13 @@ IOTAでは、署名方法の性質上、[各アドレスから一度だけしか
 この計算結果は、署名フラグメントを導出するためにキーフラグメント内の27個のセグメントそれぞれがハッシュ化されなければならない回数です。各署名フラグメントには2,187トライトが含まれています。
 <!-- The result of this calculation is the number of times that each of the 27 segments in the key fragment must be hashed to derive the signature fragment. Each signature fragment contains 2,187 trytes. -->
 
-トランザクションの[`signatureMessageFragment`フィールド](../references/structure-of-a-transaction.md)に含めることができるのは2187トライトだけなので、1より大きいセキュリティレベルを持つ入力アドレスはすべて、ゼロトークンの出力トランザクション上に残りの署名を分ける必要があります。
+トランザクションの[`signatureMessageFragment`フィールド](../references/structure-of-a-transaction.md)に含めることができるのは2187トライトだけなので、1より大きいセキュリティレベルを持つインプットアドレスは、ゼロトークンのアウトプットトランザクションの`signatureMessageFragment`フィールドに残りの署名を分けて入れる必要があります。
 <!-- Because a transaction's [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) can contain only 2187 trytes, any input address with a security level greater than 1 must fragment the rest of the signature over zero-value output transactions. -->
 
 ### ノードによる署名の検証方法
 <!-- ### How nodes verify signatures -->
 
-ノードは、署名とバンドルハッシュを使用して入力トランザクションのアドレスを見つけることによって、トランザクション内の署名を検証します。
+ノードは、署名とバンドルハッシュを使用して入力トランザクションのアドレスを導出することによって、トランザクション内の署名を検証します。
 <!-- Nodes verify a signature in a transaction by using the signature and the bundle hash to find the address of the input transaction. -->
 
 署名を検証するために、トランザクションのバンドルハッシュは正規化されます。
@@ -137,10 +137,10 @@ IOTAでは、署名方法の性質上、[各アドレスから一度だけしか
     13 + 10進数の値
     <!-- 13 + decimal value -->
 
-この計算の結果は、署名フラグメント内の27個のセグメントのそれぞれがキーフラグメントを導出するためにハッシュ化されなければならない回数です。
+この計算の結果は、署名フラグメント内の27個のセグメントからキーフラグメントを導出するためにハッシュ化されなければならない回数です。
 <!-- The result of this calculation is the number of times that each of the 27 segments in the signature fragments must be hashed to derive the key fragments. -->
 
-各キーフラグメントは、キーダイジェストを導出するために1回ハッシュ化されます。キーダイジェストは結合され、81トライトのアドレスを導出するために1回ハッシュされます。
+キーフラグメントは、キーダイジェストを導出するために1回ハッシュ化されます。キーダイジェストは結合され、81トライトのアドレスを導出するために1回ハッシュ化されます。
 <!-- Each key fragment is hashed once to derive the **key digests**, which are combined and hashed once to derive an 81-tryte address. -->
 
 こうやって導出したアドレスがトランザクションのアドレスと一致する場合、署名は有効であり、IOTAトークンの引き出しは受け入れられます。
