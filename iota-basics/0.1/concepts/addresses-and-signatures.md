@@ -43,7 +43,7 @@ IOTAでは、署名方法の性質上、[各アドレスから一度だけしか
 各秘密鍵は、シード、インデックス、およびセキュリティレベルを使い暗号学的ハッシュ関数から導出されます。
 <!-- Each private key is derived from a cryptographic hashing function that takes a seed, an index, and a security level. -->
 
-[Keccak-384ハッシュ関数](https://keccak.team/keccak.html)を使用してシードとインデックスを組み合わせてハッシュ化し、81トライトの**サブシード**を導き出します。
+[Keccak-384ハッシュ関数](https://keccak.team/keccak.html)を使用してシードとインデックスを足し合わせたものをハッシュ化し、81トライトの**サブシード**を導き出します。
 <!-- The seed and index are combined and hashed, using the [Keccak-384 hashing function](https://keccak.team/keccak.html) to derive an 81-tryte **subseed**: -->
 
     subseed = hash(seed + index)
