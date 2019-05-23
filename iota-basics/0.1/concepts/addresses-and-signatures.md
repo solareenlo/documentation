@@ -48,10 +48,10 @@ IOTAでは、署名方法の性質上、[各アドレスから一度だけしか
 
     subseed = hash(seed + index)
 
-秘密鍵を導出するために、サブシードは[スポンジ関数](https://en.wikipedia.org/wiki/Sponge_function)に渡されます。スポンジ関数はセキュリティレベル毎に27回サブシードを圧縮・撹拌します。（セキュリティレベル1だと27回圧縮と攪拌を、セキュリティレベル2だと54回圧縮と攪拌を、セキュリティレベル3だと81回圧縮と攪拌を行います。）
+秘密鍵を導出するために、サブシードは[スポンジ関数](https://en.wikipedia.org/wiki/Sponge_function)に渡されます。スポンジ関数はサブシードを1度吸収し、セキュリティレベルごとに27回圧搾されます。（セキュリティレベル1だと27回、セキュリティレベル2だと54回、セキュリティレベル3だと81回圧搾される）
 <!-- To derive a private key, the subseed is passed to a [cryptographic sponge function](https://en.wikipedia.org/wiki/Sponge_function), which absorbs it and squeezes it 27 times per security level. -->
 
-スポンジ関数の結果が、秘密鍵であり、[セキュリティレベル](../references/security-levels.md)に応じて、2,187、4,374、または6,561トライトとなります。（1回ハッシュ関数を通すごとに81トライトのダイジェストが出てきて、そのダイジェストをまたハッシュ関数に通し、セキュリティレベル1では、それを27回行う。そうすると27個のダイジェストが出てきて、その27個のダイジェストを横並びにしたものがセキュリティレベル1での秘密鍵となる。セキュリティレベル2では、27個目のダイジェストがまたハッシュ関数に渡されて28個目のダイジェストとなり、それが54回目まで行われる。そうすることで、セキュリティレベル2の秘密鍵のサイズは4,374トライトとなる。セキュリティレベル3も同様の操作を行い6,561トライトの秘密鍵が出現する。）
+スポンジ関数の結果が、秘密鍵であり、[セキュリティレベル](../references/security-levels.md)に応じて、2,187、4,374、または6,561トライトとなります。
 <!-- The result of the sponge function is a private key that consists of 2,187, 4,374, or 6,561 trytes, depending on the [security level](../references/security-levels.md). -->
 
 ### アドレスの導出方法
