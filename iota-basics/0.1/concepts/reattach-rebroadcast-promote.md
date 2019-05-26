@@ -1,10 +1,14 @@
-# Reattach, rebroadcast, and promote
+# 再添付, 再ブロードキャスト, 促進
+<!-- # Reattach, rebroadcast, and promote -->
 
-**A bundle may be pending for many reasons such as an increased load on the network. To increase the chances of a bundle being confirmed, you can reattach, rebroadcast, or promote a bundle**
+**バンドルは, ネットワークの負荷が増加するなど, さまざまな理由で保留中の場合があります. バンドルが確定される可能性を高めるために, バンドルを再添付, 再ブロードキャスト, または促進することができます. **
+<!-- **A bundle may be pending for many reasons such as an increased load on the network. To increase the chances of a bundle being confirmed, you can reattach, rebroadcast, or promote a bundle** -->
 
-## Reattach
+## 再添付
+<!-- ## Reattach -->
 
-To reattach a bundle means to create a new one and attach it to a different part of the Tangle. When you reattach a bundle, you keep most of the original bundle's fields the same, but you request new tip transactions, and do the proof of work again. As a result, the only fields that change are the following:
+バンドルを再添付するとは, 新しいバンドルを作成してそれをタングルの別の部分に添付することを意味します. バンドルを再添付するとき, オリジナルのバンドルのフィールドの大部分は同じに保ちます. しかし新しいチップトランザクションを要求し, そして再びプルーフオブワークをします. その結果, 変更される唯一のフィールドは次のとおりです.
+<!-- To reattach a bundle means to create a new one and attach it to a different part of the Tangle. When you reattach a bundle, you keep most of the original bundle's fields the same, but you request new tip transactions, and do the proof of work again. As a result, the only fields that change are the following: -->
 
 * [`hash`](../references/structure-of-a-transaction.md)
 * [`trunkTransaction`](../references/structure-of-a-transaction.md)
@@ -12,18 +16,26 @@ To reattach a bundle means to create a new one and attach it to a different part
 * [`attachmentTimestamp`](../references/structure-of-a-transaction.md)
 * [`nonce`](../references/structure-of-a-transaction.md)
 
-You may want to reattach a bundle if its transactions have been pending for more than ten minutes. After this time, the tail transaction in the pending bundle is unlikely to be selected during tip selection, which makes it unlikely to be confirmed.
+トランザクションが10分以上保留されている場合は, バンドルを再添付することをお勧めします. 10分以上経過すると, バンドルのテイルトランザクションが他のトランザクションのチップ選択で選択される可能性が低いため, 確定する可能性は低いです.
+<!-- You may want to reattach a bundle if its transactions have been pending for more than ten minutes. After this time, the tail transaction in the pending bundle is unlikely to be selected during tip selection, which makes it unlikely to be confirmed. -->
 
-When you reattach a bundle that transfers IOTA tokens, only one will ever be confirmed. The others will remain pending because they will lead to double-spends.
+IOTAトークンを転送するバンドルを再添付すると, 確定されるのは1つだけです. 二重支出につながるので, 他のトランザクションは保留中のままになります.
+<!-- When you reattach a bundle that transfers IOTA tokens, only one will ever be confirmed. The others will remain pending because they will lead to double-spends. -->
 
-## Rebroadcast
+## 再ブロードキャスト
+<!-- ## Rebroadcast -->
 
-To rebroadcast a bundle means to send the same bundle to a node again.
+バンドルを再ブロードキャストするとは, 同じバンドルをノードに再度送信することを意味します.
+<!-- To rebroadcast a bundle means to send the same bundle to a node again. -->
 
-You may want to rebroadcast a bundle if you think that the node you sent it to didn't forward the transactions to its neighbors. Nodes might not forward transactions to neighbors if they either go offline or are under heavy load after receiving a bundle.
+トランザクションを送ったノードが隣接ノードにトランザクションを転送しなかったと考えられる場合, バンドルを再ブロードキャストすることができます. ノードが, オフラインになった場合や, またはバンドルを受信した後に負荷が高くなり, トランザクションを隣接ノードに転送できていない時があります.
+<!-- You may want to rebroadcast a bundle if you think that the node you sent it to didn't forward the transactions to its neighbors. Nodes might not forward transactions to neighbors if they either go offline or are under heavy load after receiving a bundle. -->
 
-## Promote
+## 促進
+<!-- ## Promote -->
 
-To promote a bundle means to increases its chances of being selected during tip selection by increasing the [cumulative weight](root://the-tangle/0.1/concepts/tip-selection.md) of its tail transaction. When you promote a bundle, you create and send a zero-value transaction that references both its tail transaction and the latest milestone.
+バンドルを促進するとは, テイルトランザクションの[累積荷重](root://the-tangle/0.1/concepts/tip-selection.md)を増やすことによって, チップ選択で選択される可能性を高めることを意味します. バンドルを促進するとき, テイルトランザクションと最新のマイルストーンの両方を参照するゼロトークントランザクションを作成して送信します.
+<!-- To promote a bundle means to increases its chances of being selected during tip selection by increasing the [cumulative weight](root://the-tangle/0.1/concepts/tip-selection.md) of its tail transaction. When you promote a bundle, you create and send a zero-value transaction that references both its tail transaction and the latest milestone. -->
 
-Promoting a bundle is often more effective than reattaching a bundle, unless the bundle you're promoting leads to an inconsistent state (double-spend) or is older than the last six milestones.
+促進しているバンドルが矛盾した状態（二重支出）になったり, 参照しているマイルストーンが最新のマイルストーンより6個古く無ければ, バンドルを促進するほうがバンドルを再添付するよりも効果的です.
+<!-- Promoting a bundle is often more effective than reattaching a bundle, unless the bundle you're promoting leads to an inconsistent state (double-spend) or is older than the last six milestones. -->
