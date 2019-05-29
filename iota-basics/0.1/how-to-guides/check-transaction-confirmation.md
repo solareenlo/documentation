@@ -1,3 +1,4 @@
+# 
 # Check if a transaction is confirmed
 
 **Before IOTA tokens can be transferred, the bundle that transfers them must be confirmed. Transactions in a bundle remain in a pending state until the tail transaction is referenced and approved by a milestone.**
