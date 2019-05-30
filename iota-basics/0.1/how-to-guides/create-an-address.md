@@ -26,10 +26,10 @@
 2. コマンドラインで、`iota-basics`ディレクトリに移動し、[IOTAコアライブラリ](https://github.com/iotaledger/iota.js/tree/next/packages/core)をインストールします.
 <!-- 2. In the command line, change into the `iota-basics` directory, and install the [IOTA core library](https://github.com/iotaledger/iota.js/tree/next/packages/core) -->
 
-    ```bash
-    cd iota-basics
-    npm install --save @iota/core
-    ```
+  ```bash
+  cd iota-basics
+  npm install --save @iota/core
+  ```
 
 3. `iota-basics`ディレクトリに、`create-address.js`という名前の新しいファイルを作成します.
 <!-- 3. In the `iota-basics` directory, create a new file called `create-address.js` -->
@@ -37,44 +37,44 @@
 4. `create-address.js`ファイルで、IOTAライブラリが必要です.
 <!-- 4. In the `create-address.js` file, require the IOTA libraries -->
 
-    ```js
-    const Iota = require('@iota/core');
-    ```
+  ```js
+  const Iota = require('@iota/core');
+  ```
 
 5. IOTAオブジェクトのインスタンスを作成し、`provider`フィールドを使用してノードに接続します.
 <!-- 5. Create an instance of the IOTA object and use the `provider` field to connect to a node -->
 
-    ```js
-    const iota = Iota.composeAPI({
+  ```js
+  const iota = Iota.composeAPI({
     provider: 'https://nodes.devnet.iota.org:443'
-    });
-    ```
+  });
+  ```
 
 6. シードを格納するための変数を作成します.
 <!-- 6. Create a variable to store a seed -->
 
-    ```js
-    const seed =
-    'PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
-    ```
+  ```js
+  const seed =
+  'PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
+  ```
 
-    :::info:
-    シードを使用するコードはすべてクライアント側で実行されます. シードがデバイスを離れることはありません.
-    :::
-    <!-- :::info: -->
-    <!-- Any code that uses a seed is executed on the client side. Your seed never leaves your device. -->
-    <!-- ::: -->
+  :::info:
+  シードを使用するコードはすべてクライアント側で実行されます. シードがデバイスを離れることはありません.
+  :::
+  <!-- :::info: -->
+  <!-- Any code that uses a seed is executed on the client side. Your seed never leaves your device. -->
+  <!-- ::: -->
 
 7. アドレスを作成するために、`seed`変数を`getNewAddress()`メソッドに渡します.
 <!-- 7. Pass the `seed` variable to the `getNewAddress()` method to create an address -->
 
-    ```js
-    iota.getNewAddress(seed, {index: 0, security: 2})
+  ```js
+  iota.getNewAddress(seed, {index: 0, security: 2})
     .then(address => console.log(address));
-    ```
+  ```
 
-    ファイルを実行すると、アドレスが表示されます. スクリプトをもう一度実行すると、同じシード、インデックス、およびセキュリティレベルから派生しているため、同じアドレスが表示されます.
-    <!-- When you execute the file, you should see an address. If you execute the script again, you'll see the same address because its derived from the same seed, index and security level. -->
+  ファイルを実行すると、アドレスが表示されます. スクリプトをもう一度実行すると、同じシード、インデックス、およびセキュリティレベルから派生しているため、同じアドレスが表示されます.
+  <!-- When you execute the file, you should see an address. If you execute the script again, you'll see the same address because its derived from the same seed, index and security level. -->
 
 `getNewAddress()`メソッドのインデックスとセキュリティレベルの引数を変更して、別のアドレスを作成してください.
 <!-- Try changing the index and security level arguments in the `getNewAddress()` method to create a different address. -->
