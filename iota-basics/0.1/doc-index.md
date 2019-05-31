@@ -8,7 +8,7 @@
 
 [コンセプト/最小重量値](/concepts/minimum-weight-magnitude.md)
 
-[コンセプト/Reattach, rebroadcast, and promote](/concepts/reattach-rebroadcast-promote.md)
+[コンセプト/再添付, 再ブロードキャスト, 促進](/concepts/reattach-rebroadcast-promote.md)
 
 [コンセプト/トライナリ](/concepts/trinary.md)
 

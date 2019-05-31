@@ -11,7 +11,7 @@
 <!-- If you're unfamiliar with the terms private key, subseed, and key digest, we recommend [reading about addresses and signatures](../concepts/addresses-and-signatures.md). -->
 <!-- ::: -->
 
-## 必要条件
+## 前提条件
 <!-- ## Prerequisites -->
 
 このガイドを完成するには, 次のものが必要です.
@@ -134,9 +134,9 @@
   :::info:
   キーダイジェストの詳細については[こちら](../concepts/addresses-and-signatures.md).
   :::
-  :::info:
-  [Find out more about key digests](../concepts/addresses-and-signatures.md).
-  :::
+  <!-- :::info: -->
+  <!-- [Find out more about key digests](../concepts/addresses-and-signatures.md). -->
+  <!-- ::: -->
 
 8. ダイジェストを`address`メソッドに渡して, 各秘密鍵のアドレスを導出します.
 <!-- 8. Derive an address for each private key by passing the digests to the `address()` method -->
