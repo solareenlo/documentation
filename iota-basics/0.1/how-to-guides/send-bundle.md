@@ -14,7 +14,7 @@
 ## 前提条件
 <!-- ## Prerequisites -->
 
-このガイドを完成するには, 次のものが必要です.
+このガイドを完成するには、次のものが必要です。
 <!-- To complete this guide, you need the following: -->
 
 * [Node.js (8+)](https://nodejs.org/en/)
@@ -97,7 +97,7 @@
   ```
 
   :::info:
-  `asciiToTrytes()`メソッドは[基本的なASCII文字](https://en.wikipedia.org/wiki/ASCII#Printable_characters)のみをサポートします. その結果, アクセントやウムラウトなどの発音区別符号やひらがなや漢字などの日本語（2バイト文字）はサポートされておらず, `INVALID_ASCII_CHARS`エラーが発生します.
+  `asciiToTrytes()`メソッドは[基本的なASCII文字](https://en.wikipedia.org/wiki/ASCII#Printable_characters)のみをサポートします。その結果、アクセントやウムラウトなどの発音区別符号やひらがなや漢字などの日本語（2バイト文字）はサポートされておらず、`INVALID_ASCII_CHARS`エラーが発生します.
   :::
   <!-- :::info: -->
   <!-- The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error. -->
@@ -166,7 +166,7 @@
 ## コードを走らせる
 ## Run the code
 
-このガイドのサンプルコードを実行してWebブラウザに結果を表示するには, 緑色のボタンをクリックしてください.
+このガイドのサンプルコードを実行してWebブラウザに結果を表示するには、緑色のボタンをクリックしてください。
 <!-- Click the green button to run the sample code in this guide and see the results in the web browser. -->
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/Send-bundle?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>

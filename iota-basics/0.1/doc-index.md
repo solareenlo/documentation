@@ -8,9 +8,9 @@
 
 [コンセプト/最小重量値](/concepts/minimum-weight-magnitude.md)
 
-[コンセプト/再添付, 再ブロードキャスト, 促進](/concepts/reattach-rebroadcast-promote.md)
+[コンセプト/再添付、再ブロードキャスト、促進](/concepts/reattach-rebroadcast-promote.md)
 
-[コンセプト/トライナリ](/concepts/trinary.md)
+[コンセプト/3進法](/concepts/trinary.md)
 
 [ハウツーガイド/データをトライトへ変換](/how-to-guides/convert-data-to-trytes.md)
 
