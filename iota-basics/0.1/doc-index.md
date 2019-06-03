@@ -20,7 +20,7 @@
 
 [ハウツーガイド/ゼロトークントランザクションのバンドルを送信する](/how-to-guides/send-bundle.md)
 
-[ハウツーガイド/取引が確定したか確認する](/how-to-guides/check-transaction-confirmation.md)
+[ハウツーガイド/トランザクションが確定したか確認する](/how-to-guides/check-transaction-confirmation.md)
 
 [ハウツーガイド/保留中のバンドルを確定させる](/how-to-guides/confirm-pending-bundle.md)
 
