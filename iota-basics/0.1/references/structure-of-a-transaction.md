@@ -1,8 +1,11 @@
-# Structure of a transaction
+# トランザクションの構造
+<!-- # Structure of a transaction -->
 
-**This table displays a list of fields that form a transaction.** 
+**これらの表はトランザクションを形成するフィールドのリストを表します。**
+<!-- **This table displays a list of fields that form a transaction.** -->
 
-A transaction consists of 2673 tryte-encoded characters. When decoded, the transaction object contains the following fields.
+トランザクションは、トライトにエンコードされた2673文字の文字列で構成されています。デコードされると、トランザクションオブジェクトは以下のフィールドを含みます。
+<!-- A transaction consists of 2673 tryte-encoded characters. When decoded, the transaction object contains the following fields. -->
 
 | Field                         | Type   | Description                                                                                                                                                                                                                   | Length (trytes) |
 | :----------------------------- | :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ |
