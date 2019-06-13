@@ -1,6 +1,8 @@
-# Units of IOTA tokens
+# IOTAトークンの単位
+<!-- # Units of IOTA tokens -->
 
-**This table displays the units of IOTA tokens.**
+**この表はIOTAトークンの単位を表します。**
+<!-- **This table displays the units of IOTA tokens.** -->
 
 The total supply of IOTA tokens is (3<sup>33</sup>-1) / 2, which equals 2,779,530,283,277,761. Because this number is so large, units of IOTA tokens are written in [SI notation](https://en.wikipedia.org/wiki/Metric_prefix).
 
