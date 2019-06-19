@@ -36,7 +36,7 @@ IOTAトークンを転送するには、バンドルに少なくとも1つの入
 <!-- * **Output transaction:** Deposit the remaining 5Mi from address 2 into address 3 -->
 
 :::danger:
-[1度以上出金したアドレスからは出金してはいけません。](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)したがって、転送バンドルでは、出金されるアドレスの残りのトークンを新しいアドレスに入金するために、追加の出力トランザクションが必要になります。
+[1度以上出金したアドレスからは出金してはいけません](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)。したがって、転送バンドルでは、出金されるアドレスの残りのトークンを新しいアドレスに入金するために、追加の出力トランザクションが必要になります。
 :::
 <!-- :::danger: -->
 <!-- [You must not withdraw from an address more than once](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). So, a transfer bundle may require an extra output transaction to deposit the remaining balance of a withdrawn address into a new address. -->
