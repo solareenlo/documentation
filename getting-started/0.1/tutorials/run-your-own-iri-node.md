@@ -82,7 +82,7 @@ Linuxオペレーティングシステムを使用している場合は、以下
   ```
 
 3. 構築済みのDockerコンテナをダウンロードする。
-3. Download the pre-built Docker container
+<!-- 3. Download the pre-built Docker container -->
 
   ```bash
   docker pull iotaledger/iri:latest

@@ -57,7 +57,7 @@
 
   ![Hello world message](../images/trinity-hello-world.png)
 
-9. 金額フィールドが0であることを確認して、**送信**をクリックしてください。
+9. 金額フィールドが0であることを確認して、**送金**をクリックしてください。
 <!-- 9. Make sure that the AMOUNT field is 0 and click **Send** -->
 
 トランザクションはトランザクション履歴に表示されます。トランザクションをクリックして詳細を表示します。
@@ -65,7 +65,7 @@
 
 ![Transaction history](../images/trinity-receive-message.png)
 
-:::success:おめでとうございます :tada:
+:::success:おめでとうございます:tada:
 公開されているIOTAネットワークでメッセージを自分に送信しました。友達にメッセージを送信できるように、友達のアドレスの1つを尋ねてみませんか。
 :::
 <!-- :::success:Congratulations :tada: -->
